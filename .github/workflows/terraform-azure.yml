@@ -12,21 +12,12 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Cleanup workspace (fix Windows file locks)
-        shell: powershell
-        run: |
-          git clean -fdx
-          if ($LASTEXITCODE -ne 0) { Write-Host "git clean failed, continuing..." }
-          Remove-Item -Recurse -Force "${{ github.workspace }}\*" -ErrorAction SilentlyContinue
-
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          clean: true
+        uses: actions/checkout@v5.0.0
 
       - name: Azure Login
-        uses: Azure/login@v2
+        uses: Azure/login@v2.3.0
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUB_ID }}
+          client-id: 6adf1341-d89f-4adc-99ae-95fdcd50c691
+          tenant-id: ecc2219a-522b-4aa8-ae49-8ad1f605b2af
+          subscription-id: e32d395e-fd1a-4356-aad1-204b91db1cb4
