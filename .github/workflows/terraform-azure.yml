@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Cleanup workspace (fix Windows file locks)
-        shell: pwsh
+        shell: powershell
         run: |
           git clean -fdx || true
           Remove-Item -Recurse -Force "${{ github.workspace }}\*" -ErrorAction Ignore
@@ -23,7 +23,7 @@ jobs:
         with:
           clean: true
 
-      - name: Azure Login (OIDC)
+      - name: Azure Login
         uses: Azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
