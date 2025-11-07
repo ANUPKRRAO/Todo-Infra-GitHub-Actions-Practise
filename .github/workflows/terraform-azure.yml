@@ -15,8 +15,9 @@ jobs:
       - name: Cleanup workspace (fix Windows file locks)
         shell: powershell
         run: |
-          git clean -fdx || true
-          Remove-Item -Recurse -Force "${{ github.workspace }}\*" -ErrorAction Ignore
+          git clean -fdx
+          if ($LASTEXITCODE -ne 0) { Write-Host "git clean failed, continuing..." }
+          Remove-Item -Recurse -Force "${{ github.workspace }}\*" -ErrorAction SilentlyContinue
 
       - name: Checkout
         uses: actions/checkout@v4
