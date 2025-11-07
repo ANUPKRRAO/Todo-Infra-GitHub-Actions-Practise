@@ -1,0 +1,24 @@
+name: "Dhondhu Maharaaj"
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'main'
+      - 'hotfix/**'
+
+jobs:
+  DhondhuMaharaj:
+    name: Dhondhu Maharaj
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dhondhu Maharaj Rocks!
+        run: echo Dhondhu Maharaj
+
+      - name: Rondu Maharaj Rocks!
+        run: echo Rondu Maharaj
+
+      - name: Tondu Maharaj Rocks!
+        run: echo Tondu Maharaj
+        
